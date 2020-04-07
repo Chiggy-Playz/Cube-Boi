@@ -2,7 +2,7 @@ class Player():
     
     def __init__(self):
     
-        self.pos = PVector(50, 600)
+        self.pos = PVector(50, 540)
         self.vel = PVector(0,0)
         self.acc = PVector(0,0)
         self.grav = PVector(0, 0.02)
@@ -23,21 +23,21 @@ class Player():
     def display(self):
         fill(255)
         stroke(0)
-        rect(self.pos.x, self.pos.y-60, 60, 60)            
+        rect(self.pos.x, self.pos.y, 60, 60)            
      
     def edges(self):
-        if (self.pos.y > height or self.pos.y < 0):
+        if (self.pos.y > 540 or self.pos.y < 0):
            self.pos.y *=0
-           self.pos.y = height 
+           self.pos.y = 540 
          
     def render(self):
-        if self.pos.y == 600.0 :
+        if self.pos.y == 540.0 :
             self.canJump = True 
         background(210)
         self.vel.y += (self.grav.y)
        # translate(-self.pos.x + 100,0)
        # print(str(self.pos.y))
-       # print(str(self.canJump))
+        print(str(self.pos.x))
         self.update()
         self.edges()
         self.display()          
