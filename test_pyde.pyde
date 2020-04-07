@@ -13,7 +13,7 @@ def setup():
     global pfY_s  
     
     size(1100,600)
-    platforms.append(Platforms(150,500,800,30))
+    platforms.append(Platforms(300,500,500,30))
     
 
       
@@ -27,7 +27,7 @@ def draw():
         
     if debug:
         debugF()     
-    platforms[0].collisionDetection(player.pos.x, player.pos.y)
+    platforms[0].collisionDetection(player.pos.x, player.pos.y, player)
    
 ######## Some Functions ###########
 def debugF():
@@ -42,7 +42,7 @@ def debugF():
 ########## INPUT ############   
 def keyPressed():
     
-         print(keyCode)
+        
          global debug
          if (key == 'w') and (player.canJump) :
              

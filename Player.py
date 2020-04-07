@@ -2,7 +2,7 @@ class Player():
     
     def __init__(self):
     
-        self.pos = PVector(50, 540)
+        self.pos = PVector(550, 437)
         self.vel = PVector(0,0)
         self.acc = PVector(0,0)
         self.grav = PVector(0, 0.02)
@@ -37,7 +37,7 @@ class Player():
         self.vel.y += (self.grav.y)
        # translate(-self.pos.x + 100,0)
        # print(str(self.pos.y))
-        print(str(self.pos.x))
+       # print(str(self.pos.x))
         self.update()
         self.edges()
         self.display()          
