@@ -7,6 +7,7 @@ class Player():
         self.acc = PVector(0,0)
         self.grav = PVector(0, 0.02)
         self.canJump = True
+        self.isColliding = False
     
     def applyForce(self, force):
         self.acc.add(force)
@@ -34,7 +35,8 @@ class Player():
         if self.pos.y == 540.0 :
             self.canJump = True 
         background(210)
-        self.vel.y += (self.grav.y)
+        if not self.isColliding:
+            self.vel.y += (self.grav.y)
        # translate(-self.pos.x + 100,0)
        # print(str(self.pos.y))
        # print(str(self.pos.x))

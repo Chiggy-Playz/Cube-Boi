@@ -9,13 +9,13 @@ debug = False
 def setup():
     global posX_s
     global posY_s
-    global pfX_s
+    global pfX_s2
     global pfY_s  
     
     size(1100,600)
-    platforms.append(Platforms(300,500,500,30))
-    
-
+    platforms.append(Platforms(300, 500,500,30))
+    platforms.append(Platforms(100, 430, 100, 30))
+    platforms.append(Platforms(900, 430, 100, 30))
       
 ######### DRAW ###########
         
@@ -27,7 +27,9 @@ def draw():
         
     if debug:
         debugF()     
-    platforms[0].collisionDetection(player.pos.x, player.pos.y, player)
+    player.isColliding = False    
+    for p in platforms:
+        p.collisionDetection(player.pos.x, player.pos.y, player)
    
 ######## Some Functions ###########
 def debugF():
@@ -37,7 +39,8 @@ def debugF():
     text( ("PosY : " + str(player.pos.y)), 50, 150 )
     text( ("PlatformX : " + str(platforms[0].x)), 800, 50 )
     text( ("PlatformY : " + str(platforms[0].y)), 800, 150)
-    text(str(player.canJump), 50, 250)   
+    text(str(player.canJump), 50, 250)
+    text(str(player.isColliding), 300, 250)   
    
 ########## INPUT ############   
 def keyPressed():
